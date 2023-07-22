@@ -9,6 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@biconomy/account": "^3.0.0-alpha.0",
+    "@biconomy/bundler": "^3.0.0-alpha.0",
+    "@biconomy/common": "^3.0.0-alpha.0",
+    "@biconomy/core-types": "^3.0.0-alpha.0",
+    "@biconomy/node-client": "^3.0.0-alpha.0",
+    "@biconomy/paymaster": "^3.0.0-alpha.0",
+    "@biconomy/web3-auth": "^3.0.0-alpha.0",
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
@@ -20,6 +28,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-modal": "^3.16.1",
+    "rollup-plugin-polyfill-node": "^0.12.0",
+    "stream-browserify": "^3.0.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
   },

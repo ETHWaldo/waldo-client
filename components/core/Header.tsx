@@ -2,10 +2,11 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Header = () => {
-	const connectWallet = async () => {};
-	const [account, setAccount] = useState("0x");
+	const [account, setAccount] = useState("");
 	const router = useRouter();
-
+	const connectWallet = () => {
+		router.push("/auth");
+	};
 	return (
 		<div className='flex items-center justify-between p-6 bg-red-300 w-full'>
 			<button onClick={() => router.push("/")}>

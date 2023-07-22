@@ -1,19 +1,24 @@
 "use client";
 
 import CreatorCard from "@/components/cards/creator.card";
+import ListingCard from "@/components/cards/listing.card";
+import SponsorCard from "@/components/cards/sponsor.card";
 import SponsorshipCard from "@/components/cards/sponsorship.card";
 import Header from "@/components/core/Header";
 import {
 	completedSponsorships,
+	currentListings,
 	pendingSponsorships,
-	topCreators,
+	topSponsors,
 } from "@/data";
 import React, { useState } from "react";
 
 const SponsorDashboard = () => {
 	const [search, setSearch] = useState("");
-	const [creators] = useState(topCreators); // Mock data
+	const [sponsors] = useState(topSponsors); // Mock data
 	const [sponsorships] = useState(pendingSponsorships); // Mock data
+	const [listings] = useState(currentListings); // Mock data
+
 	const [compSponsorships] = useState(completedSponsorships); // Mock data
 	const [balance] = useState(5); // Mock data
 
@@ -39,14 +44,31 @@ const SponsorDashboard = () => {
 					/>
 
 					{search.length === 0 && (
-						<h2 className='text-xl font-semibold mb-4'>
-							Available Sponsorships
-						</h2>
+						<h2 className='text-xl font-semibold mb-4'>Top Sponsors</h2>
 					)}
 					<ul>
-						{creators.map((creator, index) => (
+						{sponsors.map((sponsor, index) => (
 							<li key={index} className='mb-2'>
-								<CreatorCard creator={creator} />
+								<SponsorCard sponsor={sponsor} />
+							</li>
+						))}
+					</ul>
+					<h2 className='text-2xl font-bold mt-8 mb-4'>Listings</h2>
+					<input
+						className='w-full px-3 py-2 text-lg rounded border border-gray-300 mb-4'
+						type='text'
+						value={search}
+						onChange={handleSearchChange}
+						placeholder='Search listings...'
+					/>
+
+					{search.length === 0 && (
+						<h2 className='text-xl font-semibold mb-4'>Top Listings</h2>
+					)}
+					<ul>
+						{currentListings.map((listing, index) => (
+							<li key={index} className='mb-2'>
+								<ListingCard listing={listing} />
 							</li>
 						))}
 					</ul>

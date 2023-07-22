@@ -176,3 +176,45 @@ export const completedSponsorships = [
 		},
 	},
 ];
+
+export const topSponsors = [
+	{
+		displayName: "Raid Shadow Legends",
+		walletAddress: "0xAb12Fe983457Ac05",
+		yourSponsorships: 5,
+		totalSponsorships: 56,
+		totalEarnings: 102.43,
+		yourEarnings: 12.4,
+	},
+	{
+		displayName: "Better Help",
+		walletAddress: "0xCd34Re783654Ft09",
+		yourSponsorships: 2,
+		totalSponsorships: 78,
+		totalEarnings: 89.3,
+		yourEarnings: 9.2,
+	},
+];
+
+export const currentListings = [
+	{
+		title: "Cabals Labs Brand Ambassadorships",
+		description: "Description...",
+		cost: 1.2,
+		trigger: "views",
+		sponsorURL: "https://caballabs.com",
+		script: "Stuff...",
+		currency: "ETH",
+		walletAddress: "0xCd34Re783654Ft09",
+	},
+	{
+		title: "Aquaphor",
+		description: "Description...",
+		cost: 40,
+		trigger: "views",
+		sponsorURL: "https://caballabs.com",
+		script: "Stuff...",
+		currency: "USDC",
+		walletAddress: "0xAb12Fe983457Ac05",
+	},
+];

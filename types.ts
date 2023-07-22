@@ -10,10 +10,30 @@ export type Creator = {
 	totalEarnings?: number;
 };
 
+export type Sponsor = {
+	displayName: string;
+	walletAddress: string;
+	yourSponsorships?: number;
+	totalSponsorships?: number;
+	yourEarnings?: number;
+	totalEarnings?: number;
+};
+
 export type Sponsorship = {
 	cost: number;
 	numOfVideos: number;
 	trigger: string;
 	sponsorURL: string;
 	script: string;
+};
+
+export type Listing = {
+	title: string;
+	description: string;
+	walletAddress: string;
+	cost: number;
+	trigger: string;
+	sponsorURL: string;
+	script: string;
+	currency: string;
 };
