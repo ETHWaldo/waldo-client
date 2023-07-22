@@ -4,6 +4,7 @@ import { Creator } from "@/types";
 import React from "react";
 import Modal from "react-modal";
 import AvatarImage from "../../images/b-and-beans.png";
+import { useRouter } from "next/navigation";
 
 const CreatorModal = ({
 	creator,
@@ -14,6 +15,10 @@ const CreatorModal = ({
 	isOpen: boolean;
 	onClose: () => void;
 }) => {
+	const router = useRouter();
+	function sponsorClick() {
+		router.push("/sponsor/new");
+	}
 	return (
 		<Modal
 			isOpen={isOpen}
@@ -66,7 +71,10 @@ const CreatorModal = ({
 			</ul>
 
 			<div className='flex justify-center'>
-				<button className='px-8 py-4 rounded bg-blue-500 text-white font-bold text-2xl mx-auto justify hover:opacity-50'>
+				<button
+					className='px-8 py-4 rounded bg-blue-500 text-white font-bold text-2xl mx-auto justify hover:opacity-50'
+					onClick={sponsorClick}
+				>
 					Sponsor
 				</button>
 			</div>

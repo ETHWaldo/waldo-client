@@ -3,7 +3,13 @@ import { Creator } from "@/types";
 import React, { useState } from "react";
 import CreatorModal from "../modals/creator.modal";
 
-export default function CreatorCard({ creator }: { creator: Creator }) {
+export default function CreatorCard({
+	creator,
+	disabled,
+}: {
+	creator: Creator;
+	disabled?: boolean;
+}) {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	const openModal = () => setModalIsOpen(true);
@@ -12,6 +18,7 @@ export default function CreatorCard({ creator }: { creator: Creator }) {
 		<button
 			className='card bg-white shadow-md hover:shadow-lg rounded-lg p-4 transition-shadow duration-200 ease-in-out flex justify-between w-full'
 			onClick={openModal}
+			disabled={disabled}
 		>
 			<div className='text-left'>
 				<h2 className='text-2xl font-bold mb-2'>{creator.displayName}</h2>

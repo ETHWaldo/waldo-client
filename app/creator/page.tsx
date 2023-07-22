@@ -1,13 +1,86 @@
 "use client";
 
+import CreatorCard from "@/components/cards/creator.card";
+import SponsorshipCard from "@/components/cards/sponsorship.card";
 import Header from "@/components/core/Header";
+import {
+	completedSponsorships,
+	pendingSponsorships,
+	topCreators,
+} from "@/data";
+import React, { useState } from "react";
 
-export default function Creator() {
+const SponsorDashboard = () => {
+	const [search, setSearch] = useState("");
+	const [creators] = useState(topCreators); // Mock data
+	const [sponsorships] = useState(pendingSponsorships); // Mock data
+	const [compSponsorships] = useState(completedSponsorships); // Mock data
+	const [balance] = useState(5); // Mock data
+
+	const handleSearchChange = (event: any) => {
+		setSearch(event.target.value);
+	};
+
 	return (
-		<div>
+		<>
 			<Header />
+			<div className='flex pt-16'>
+				<div className='w-1/2 p-8'>
+					<h2 className='text-2xl font-bold mb-4'>Balance</h2>
+					<p className='text-xl'>{balance} ETH</p>
 
-			<h1>Creator</h1>
-		</div>
+					<h2 className='text-2xl font-bold mt-8 mb-4'>Sponsorships</h2>
+					<input
+						className='w-full px-3 py-2 text-lg rounded border border-gray-300 mb-4'
+						type='text'
+						value={search}
+						onChange={handleSearchChange}
+						placeholder='Search sponsorships...'
+					/>
+
+					{search.length === 0 && (
+						<h2 className='text-xl font-semibold mb-4'>
+							Available Sponsorships
+						</h2>
+					)}
+					<ul>
+						{creators.map((creator, index) => (
+							<li key={index} className='mb-2'>
+								<CreatorCard creator={creator} />
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<div className='w-1/2 p-8'>
+					<h2 className='text-2xl font-bold mb-4'>Your Sponsorships</h2>
+					<h3 className='text-xl font-semibold mb-2'>Pending</h3>
+					<ul>
+						{sponsorships.map((sponsorship, index) => (
+							<li key={index} className='mb-2'>
+								<SponsorshipCard
+									creator={sponsorship.creator}
+									sponsorship={sponsorship.sponsorship}
+								/>
+							</li>
+						))}
+					</ul>
+
+					<h3 className='text-xl font-semibold mt-6 mb-2'>Complete</h3>
+					<ul>
+						{completedSponsorships.map((sponsorship, index) => (
+							<li key={index} className='mb-2'>
+								<SponsorshipCard
+									creator={sponsorship.creator}
+									sponsorship={sponsorship.sponsorship}
+								/>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</>
 	);
-}
+};
+
+export default SponsorDashboard;
