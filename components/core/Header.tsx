@@ -1,23 +1,41 @@
+import { Context } from "@/providers/provider";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
-const Header = () => {
-	const [account, setAccount] = useState("");
+const Header = ({ noWallet }: { noWallet?: boolean }) => {
+	const { walletAddress } = useContext(Context);
 	const router = useRouter();
 	const connectWallet = () => {
-		router.push("/auth");
+		router.push("/");
 	};
+
 	return (
-		<div className='flex items-center justify-between p-6 bg-red-300 w-full'>
-			<button onClick={() => router.push("/")}>
-				<div className='text-white font-bold text-xl'>ETHWaldo</div>
-			</button>
-			<button
-				className='bg-white text-blue-500 px-4 py-2 rounded font-bold'
-				onClick={connectWallet}
-			>
-				{account ? `Connected: 0x...` : "Connect Wallet"}
-			</button>
+		<div className='mb-20'>
+			<header className='fixed top-0 left-0 z-50 w-full p-6 bg-white border-b-2 border-red-600'>
+				<div className='container mx-auto flex items-center justify-between'>
+					<button
+						onClick={() => {
+							if (!walletAddress) {
+								router.push("/");
+							} else {
+								router.push("/home");
+							}
+						}}
+					>
+						<div className='text-2xl font-extrabold tracking-wider text-red-600'>
+							ETHWaldo
+						</div>
+					</button>
+					{!noWallet && (
+						<button
+							className='px-4 py-2 border-2 border-red-600  font-bold rounded-none'
+							onClick={connectWallet}
+						>
+							{walletAddress ? `Connected: ${walletAddress}` : "Connect Wallet"}
+						</button>
+					)}
+				</div>
+			</header>
 		</div>
 	);
 };

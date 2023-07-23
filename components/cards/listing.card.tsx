@@ -16,7 +16,7 @@ export default function ListingCard({
 	const closeModal = () => setModalIsOpen(false);
 	return (
 		<button
-			className='card bg-white shadow-md hover:shadow-lg rounded-lg p-4 transition-shadow duration-200 ease-in-out flex justify-between w-full'
+			className='card bg-white border-2 border-red-600 rounded-none p-4 w-full'
 			onClick={openModal}
 			disabled={disabled}
 		>
@@ -24,8 +24,8 @@ export default function ListingCard({
 				<h2 className='text-2xl font-bold mb-2'>{listing.title}</h2>
 				<p className='text-sm text-gray-400'>{listing.walletAddress}</p>
 			</div>
-			<div className='flex items-center'>
-				<span className='text-lg text-gray-600'>
+			<div className='flex justify-end'>
+				<span className='text-lg text-red-600 '>
 					{listing.cost} {listing.currency}
 				</span>
 			</div>

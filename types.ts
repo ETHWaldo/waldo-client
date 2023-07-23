@@ -20,11 +20,15 @@ export type Sponsor = {
 };
 
 export type Sponsorship = {
+	title: string;
+	description: string;
 	cost: number;
 	numOfVideos: number;
 	trigger: string;
 	sponsorURL: string;
 	script: string;
+	currency: string;
+	walletAddress: string;
 };
 
 export type Listing = {

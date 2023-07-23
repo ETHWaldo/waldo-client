@@ -24,14 +24,16 @@ const SponsorDashboard = () => {
 	return (
 		<>
 			<Header />
-			<div className='flex pt-16'>
+			<div className='flex pt-16 bg-white'>
 				<div className='w-1/2 p-8'>
-					<h2 className='text-2xl font-bold mb-4'>Balance</h2>
-					<p className='text-xl'>{balance} ETH</p>
+					<h2 className='text-2xl font-bold text-red-600 mb-4'>Balance</h2>
+					<p className='text-xl '>{balance} ETH</p>
 
-					<h2 className='text-2xl font-bold mt-8 mb-4'>Creators</h2>
+					<h2 className='text-2xl font-bold text-red-600 mt-8 mb-4'>
+						Creators
+					</h2>
 					<input
-						className='w-full px-3 py-2 text-lg rounded border border-gray-300 mb-4'
+						className='w-full px-3 py-2 text-lg rounded-none border border-red-600 mb-4'
 						type='text'
 						value={search}
 						onChange={handleSearchChange}
@@ -39,7 +41,7 @@ const SponsorDashboard = () => {
 					/>
 
 					{search.length === 0 && (
-						<h2 className='text-xl font-semibold mb-4'>Top Creators</h2>
+						<h2 className='text-xl font-semibold  mb-4'>Top Creators</h2>
 					)}
 					<ul>
 						{creators.map((creator, index) => (
@@ -51,8 +53,10 @@ const SponsorDashboard = () => {
 				</div>
 
 				<div className='w-1/2 p-8'>
-					<h2 className='text-2xl font-bold mb-4'>Active Sponsorships</h2>
-					<h3 className='text-xl font-semibold mb-2'>Pending</h3>
+					<h2 className='text-2xl font-bold text-red-600 mb-4'>
+						Active Sponsorships
+					</h2>
+					<h3 className='text-xl font-semibold  mb-2'>Pending</h3>
 					<ul>
 						{sponsorships.map((sponsorship, index) => (
 							<li key={index} className='mb-2'>
@@ -64,7 +68,7 @@ const SponsorDashboard = () => {
 						))}
 					</ul>
 
-					<h3 className='text-xl font-semibold mt-6 mb-2'>Complete</h3>
+					<h3 className='text-xl font-semibold  mt-6 mb-2'>Complete</h3>
 					<ul>
 						{completedSponsorships.map((sponsorship, index) => (
 							<li key={index} className='mb-2'>

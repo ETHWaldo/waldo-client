@@ -19,18 +19,17 @@ export default function SponsorshipCard({
 	const closeModal = () => setModalIsOpen(false);
 	return (
 		<button
-			className='card bg-white shadow-md hover:shadow-lg rounded-lg p-4 transition-shadow duration-200 ease-in-out flex justify-between w-full'
+			className='card bg-white border-2 border-red-600 rounded-none p-4 w-full'
 			onClick={openModal}
 		>
 			<div className='text-left'>
-				<h2 className='font-bold text-xl mb-1'>{creator.displayName}</h2>
-				<p className='text-gray-600 mb-2'>@{creator.username}</p>
-				<p className='text-gray-400 mb-2'>{creator.walletAddress}</p>
+				<h2 className='text-2xl font-bold mb-2'>{sponsorship.title}</h2>
+				<p className='text-sm text-gray-400'>{sponsorship.walletAddress}</p>
 			</div>
-			<div className='text-right'>
-				<p className='text-blue-600 mb-2 font-bold'>{sponsorship.cost} ETH</p>
-				<p className='text-gray-600 mb-2'>{sponsorship.numOfVideos} videos</p>
-				<p className='text-gray-600 mb-2'>Trigger: {sponsorship.trigger}</p>
+			<div className='flex justify-end'>
+				<span className='text-lg text-red-600 '>
+					{sponsorship.cost} {sponsorship.currency}
+				</span>
 			</div>
 			<SponsorshipModal
 				sponsorship={sponsorship}

@@ -10,30 +10,6 @@ interface BiconomyContextType {
 	setSmartAccount: (account: BiconomySmartAccount | null) => void;
 }
 
-const BiconomyData = () => {
-	const sdkRef = useRef<SocialLogin | null>(null);
-	const [sdkRefState, setSdkRefState] = useState<SocialLogin | null>(null);
-	const [smartAccount, setSmartAccount] = useState<BiconomySmartAccount | null>(
-		null
-	);
-
-	// Sync state with ref
-	useEffect(() => {
-		setSdkRefState(sdkRef.current);
-	}, [sdkRef.current]);
-
-	const provider = useMemo(
-		() => ({
-			sdkRef: sdkRefState,
-			smartAccount,
-			setSmartAccount,
-		}),
-		[sdkRefState, smartAccount, setSmartAccount]
-	);
-
-	return provider;
-};
-
 // Create the context
 export const BiconomyContext = createContext<BiconomyContextType>({
 	sdkRef: null,

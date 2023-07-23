@@ -120,11 +120,15 @@ export const pendingSponsorships = [
 			views: 3541,
 		},
 		sponsorship: {
+			title: "Aquaphor",
+			description: "Description...",
 			cost: 2.5,
 			numOfVideos: 5,
 			trigger: "views",
 			sponsorURL: "https://example.com/WALDO",
 			script: "Lorem ipsum...",
+			currency: "USDC",
+			walletAddress: "0xAb12Fe983457Ac05",
 		},
 	},
 	{
@@ -135,11 +139,15 @@ export const pendingSponsorships = [
 			views: 2186,
 		},
 		sponsorship: {
+			title: "Aquaphor",
+			description: "Description...",
 			cost: 1.7,
 			numOfVideos: 2,
 			trigger: "likes",
 			sponsorURL: "https://example.com/WALDO",
 			script: "Lorem ipsum...",
+			currency: "USDC",
+			walletAddress: "0xAb12Fe983457Ac05",
 		},
 	},
 ];
@@ -153,11 +161,15 @@ export const completedSponsorships = [
 			views: 4422,
 		},
 		sponsorship: {
+			title: "Cabals Labs Brand Ambassadorships",
+			description: "Description...",
 			cost: 1.0,
+			currency: "USDC",
 			numOfVideos: 4,
 			trigger: "views",
 			sponsorURL: "https://example.com/WALDO",
 			script: "Lorem ipsum...",
+			walletAddress: "0xAb12Fe983457Ac05",
 		},
 	},
 	{
@@ -168,11 +180,15 @@ export const completedSponsorships = [
 			views: 7475,
 		},
 		sponsorship: {
+			title: "Aquaphor",
+			description: "Description...",
 			cost: 1.3,
+			currency: "USDC",
 			numOfVideos: 1,
 			trigger: "likes",
 			sponsorURL: "https://example.com/WALDO",
 			script: "Lorem ipsum...",
+			walletAddress: "0xAb12Fe983457Ac05",
 		},
 	},
 ];

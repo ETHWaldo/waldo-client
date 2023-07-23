@@ -24,11 +24,11 @@ export default function ListingModal({
 			isOpen={isOpen}
 			onRequestClose={onClose}
 			contentLabel='Listing Detail Modal'
-			className='p-4 w-full md:w-1/2 mx-auto mt-24 rounded bg-white'
+			className='p-4 w-full md:w-1/2 mx-auto mt-24 rounded-none border-2 border-red-600 bg-white'
 		>
 			<div className='flex justify-between items-center'>
-				<h2 className='text-2xl font-bold'>Listing Info</h2>
-				<button onClick={onClose} className='text-lg font-bold'>
+				<h2 className='text-2xl font-bold text-red-600'>Listing Info</h2>
+				<button onClick={onClose} className='text-lg font-bold text-red-600'>
 					Press ESC to close
 				</button>
 			</div>
@@ -42,20 +42,22 @@ export default function ListingModal({
 					className='rounded-full'
 				/>
 				<div className='ml-10'>
-					<h2 className='text-2xl font-bold  my-4'>{listing.title}</h2>
+					<h2 className='text-2xl font-bold text-red-600 my-4'>
+						{listing.title}
+					</h2>
 					<button
 						onClick={() => {
 							navigator.clipboard.writeText(listing.walletAddress);
 						}}
 					>
-						<p className='text-sm text-blue-400  mb-4'>
+						<p className='text-sm text-red-600  mb-4'>
 							{listing.walletAddress}
 						</p>
 					</button>
 				</div>
 			</div>
 
-			<p className='flex text-gray-400 mb-2 justify-end'>
+			<p className='flex text-red-600 mb-2 justify-end'>
 				{listing.description}
 			</p>
 			<ul className='mb-2'>
@@ -69,7 +71,7 @@ export default function ListingModal({
 
 			<div className='flex justify-center'>
 				<button
-					className='px-8 py-4 rounded bg-blue-500 text-white font-bold text-2xl mx-auto justify hover:opacity-50'
+					className='px-8 py-4 rounded-none border-2 border-red-600 bg-red-600 text-white font-bold text-2xl mx-auto justify hover:opacity-75'
 					onClick={sponsorClick}
 				>
 					Accept

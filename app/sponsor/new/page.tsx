@@ -29,10 +29,10 @@ export default function NewSponsorship() {
 	};
 
 	return (
-		<div>
+		<div className='pt-20 bg-white'>
 			<Header />
 			<div className='container mx-auto px-4'>
-				<h1 className='text-3xl my-4'>Create a sponsorship</h1>
+				<h1 className='text-3xl my-4 text-red-600'>Create a sponsorship</h1>
 				<CreatorCard creator={topCreators[0]} disabled />
 				<p className='mt-4'>
 					As a sponsor, you are creating your sponsorship deal. You can
@@ -43,7 +43,7 @@ export default function NewSponsorship() {
 					access your product.
 				</p>
 				<form onSubmit={handleSubmit} className='mb-2 mt-4 flex flex-col'>
-					<label className='mb-2 mt-4 text-xl font-bold'>
+					<label className='mb-2 mt-4 text-xl font-bold  text-red-600'>
 						Information and Details
 					</label>
 
@@ -56,7 +56,7 @@ export default function NewSponsorship() {
 							type='text'
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
-							className='rounded py-2 px-1'
+							className='border-red-600 border-2 py-2 px-1'
 						/>
 					</div>
 
@@ -70,7 +70,7 @@ export default function NewSponsorship() {
 							required
 							value={description}
 							onChange={(e) => setDescription(e.target.value)}
-							className='rounded py-2 px-1'
+							className='border-red-600 border-2 py-2 px-1'
 						/>
 					</div>
 
@@ -83,23 +83,28 @@ export default function NewSponsorship() {
 						<textarea
 							value={script}
 							onChange={(e) => setScript(e.target.value)}
-							className='rounded py-2 px-1'
+							className='border-red-600 border-2 py-2 px-1'
 						/>
 					</div>
 
 					<div className='flex flex-col'>
 						<label className='mb-2 mt-4'>Upload Files</label>
 						<i className='mb-2 text-gray-500'>
-							Add all attachments you thing are important for the creator to use
+							Add all attachments you think are important for the creator to use
 							in their content.
 						</i>
 
-						<input type='file' multiple onChange={handleFileChange} />
+						<input
+							type='file'
+							multiple
+							onChange={handleFileChange}
+							className='border-red-600 border-2 py-2 px-1'
+						/>
 						<ul>
 							{files.map((file, index) => (
 								<li
 									key={index}
-									className='flex justify-between bg-gray-300 my-2 px-2 py-2 rounded'
+									className='flex justify-between bg-gray-300 my-2 px-2 py-2'
 								>
 									{/* @ts-expect-error */}
 									{file.name}
@@ -116,14 +121,16 @@ export default function NewSponsorship() {
 							post, these clicks will be measured.
 						</i>
 						<input
-							className='rounded py-2 px-1'
 							type='text'
 							value={url}
 							onChange={(e) => setURL(e.target.value)}
+							className='border-red-600 border-2 py-2 px-1'
 						/>
 					</div>
 					<div className='mb-2 mt-4 flex flex-col'>
-						<label className='mb-2 mt-4 text-xl font-bold'>Payment</label>
+						<label className='mb-2 mt-4 text-xl font-bold  text-red-600'>
+							Payment
+						</label>
 						<i className='mb-2 text-gray-500'>
 							Information on how you will pay your creator
 						</i>
@@ -132,12 +139,12 @@ export default function NewSponsorship() {
 								<label className='mb-2 mt-4'>Amount</label>
 
 								<input
-									className='rounded py-2 px-1'
 									type='number'
 									min='0'
 									step='0.01'
 									value={payment}
 									onChange={(e) => setPayment(Number(e.target.value))}
+									className='border-red-600 border-2 py-2 px-1'
 								/>
 							</div>
 
@@ -147,7 +154,7 @@ export default function NewSponsorship() {
 								<select
 									value={currency}
 									onChange={(e) => setCurrency(e.target.value)}
-									className='rounded py-2 px-1'
+									className='border-red-600 border-2 py-2 px-1'
 								>
 									<option value=''>--Please choose an option--</option>
 									<option value='ETH'>ETH</option>
@@ -165,7 +172,7 @@ export default function NewSponsorship() {
 						<select
 							value={trigger}
 							onChange={(e) => setTrigger(e.target.value)}
-							className='rounded py-2 px-1'
+							className='border-red-600 border-2 py-2 px-1'
 						>
 							<option value=''>--Please choose an option--</option>
 							<option value='likes'>Likes</option>
@@ -176,7 +183,7 @@ export default function NewSponsorship() {
 
 					<div className='flex justify-center my-10'>
 						<button
-							className='px-8 py-4 rounded bg-blue-500 text-white font-bold text-2xl mx-auto justify hover:opacity-50'
+							className='px-8 py-4 rounded bg-red-600 text-white font-bold text-2xl mx-auto justify hover:opacity-50'
 							onClick={handleSubmit}
 						>
 							Continue
