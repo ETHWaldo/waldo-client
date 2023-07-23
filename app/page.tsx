@@ -9,6 +9,7 @@ import BackgroundImage from "../images/auth.png";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import Header from "@/components/core/Header";
+import { ChainId } from "@biconomy/core-types";
 export default function Login() {
 	const router = useRouter();
 	const { setWalletAddress } = useContext(Context);
@@ -23,7 +24,10 @@ export default function Login() {
 		// create an instance of SocialLogin
 		const socialLogin = new SocialLogin();
 		// init social login SDK, all params are optional
-		await socialLogin.init();
+		await socialLogin.init({
+			chainId: ethers.utils.hexValue(ChainId.GOERLI).toString(),
+		network: "testnet"
+	});
 
 		// pops up the UI widget
 		socialLogin.showWallet();
@@ -34,6 +38,7 @@ export default function Login() {
 			whitelistUrls: {
 				"http://localhost:3000/": signature1,
 			},
+			
 		});
 		if (!socialLogin?.provider) return;
 		// create a provider from the social login provider that
