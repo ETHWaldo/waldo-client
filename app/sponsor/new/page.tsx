@@ -2,6 +2,7 @@
 
 import CreatorCard from "@/components/cards/creator.card";
 import Header from "@/components/core/Header";
+import AttestationButton from "@/components/eas/attestations";
 import { topCreators } from "@/data";
 import React, { useState } from "react";
 
@@ -180,15 +181,16 @@ export default function NewSponsorship() {
 							<option value='link clicks'>Link Clicks</option>
 						</select>
 					</div>
-
-					<div className='flex justify-center my-10'>
-						<button
-							className='px-8 py-4 rounded bg-red-600 text-white font-bold text-2xl mx-auto justify hover:opacity-50'
-							onClick={handleSubmit}
-						>
-							Continue
-						</button>
-					</div>
+					<AttestationButton
+						title={title}
+						description={description}
+						script={script}
+						files={files}
+						url={url}
+						trigger={trigger}
+						payment={payment}
+						currency={currency}
+					/>
 				</form>
 			</div>
 		</div>
